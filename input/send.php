@@ -91,12 +91,12 @@ if($error==0){
 
 
         try{
-            $stmt = $pdo->prepare('INSERT INTO product_contents (itemname, barnum, imgurl, created_at, updated_at) VALUES(:itemname, :barnum, :imgurl, NOW(), NOW() )');
+            $stmt = $pdo->prepare('INSERT INTO product_contents (itemname, barnum, extension, created_at, updated_at) VALUES(:itemname, :barnum, :extension, NOW(), NOW() )');
  
             // 値をセット
             $stmt->bindValue(':itemname', $content);
             $stmt->bindValue(':barnum', $barcode);
-            $stmt->bindValue(':imgurl', $imgurl);
+            $stmt->bindValue(':extension', $extension);
             // $stmt->bindValue(':created_at', '22');
          
             // SQL実行
