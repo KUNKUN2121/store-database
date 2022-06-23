@@ -91,7 +91,7 @@ if($error==0){
 
 
         try{
-            $stmt = $pdo->prepare('INSERT INTO product_contents (itemname, barnum, extension, created_at, updated_at) VALUES(:itemname, :barnum, :extension, NOW(), NOW() )');
+            $stmt = $pdo->prepare('INSERT INTO product_contents (itemname, barnum, extension, quantity, created_at, updated_at) VALUES(:itemname, :barnum, :extension, 0, NOW(), NOW() )');
  
             // 値をセット
             $stmt->bindValue(':itemname', $content);
