@@ -98,8 +98,8 @@ $img = 'https://store-project.f5.si/img/';
         'itemname' => $itemname,
         'barcode' => $barcode,
         'quantity' => $quantity,
-        'category' => 'taro@example.com',
-        'price' => 18,
+        'category' => 'todocategory',
+        'price' => 1000,
         'imgURL' => $imgURL,
         ];
         echo json_encode($person, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
