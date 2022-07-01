@@ -12,16 +12,21 @@
     }
 
     // json受け取り
-    $json = file_get_contents('php://input');
-    $data = json_decode($json, true);
-    //データ代入
-    // var_dump($data);
-    $end = count($data);
-    echo $end;
+    try {
+        $json = file_get_contents('php://input');
+        $data = json_decode($json, true);
+        //データ代入
+        $end = count($data);
+        echo $end;
+    } catch (\Throwable $th) {
+        echo('このAPIは在庫追加用です。<div> POSTメソッドで送信してください。 <div>');
+        echo('<div><div> errorcode<div>');
+        echo $th;
+    }
+
     for ($i = 0; $i < $end; $i++) {
         $barcode = $data[$i][0];
         $quantity = $data[$i][1];
-        //echo($barcode.' 個数は '.$quantity.'<div>');
 
         try{
             $stmt = $pdo->prepare('UPDATE product_contents SET quantity = quantity + :quantity WHERE barnum = :barnum');
@@ -39,18 +44,6 @@
                 }else{
                     echo('変更なし');
                 }
-                // var_dump($res);
-                // $data = $stmt->fetch();
-                //     if($data[0] != null){
-                //         //関数代入
-                //         $now_quantity  = $data[0];
-                //         $return = 0; // 完了通知
-                //         echo ($now_quantity);
-                //     }else{
-                //         //登録されてない
-                //         $itemname = 'error';
-                //         $return = 1; // 処理終了
-                //     }
             }else{
                 echo('resあるけど countない');
             }
@@ -62,7 +55,6 @@
         }
 
     }
-
     // foreach($data as $i){
     //     $barcode = $data[$i][0];
     //     $quantity = $data[$i][1];

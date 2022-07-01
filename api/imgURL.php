@@ -43,7 +43,7 @@ $barcode = $_GET['barcode'];
                     fpassthru($fp);
                     exit;
                 }else{
-                    echo('aaa');
+                    echo('imgURL.php?barocde=00000');
                 }
             }
 
