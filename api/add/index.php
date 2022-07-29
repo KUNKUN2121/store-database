@@ -34,7 +34,7 @@
 				商品登録 Register
 				</h1>
 				<hr>
-				<p>既存に存在しているバーコードでは登録できません。</p>
+				<p>既存に存在しているバーコードでは登録されず上書きされます。</p>
 				<form method="post" action="send.php" enctype="multipart/form-data">
 					<label>商品名</label>
 					<input type="text" name="content">
