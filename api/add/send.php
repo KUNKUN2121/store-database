@@ -33,6 +33,7 @@
 
 
 <?php
+require_once "../adatabase.php";
 echo $_POST["barcode"];
 echo '<div>';
 // echo $_POST["content"];
@@ -85,17 +86,6 @@ if (isset($_POST["price"])) {
     }
 
     if($error==0){
-        try {
-            $dsn = 'mysql:dbname=store;host=localhost;charset=utf8mb4';
-            $username ='store';
-            $password = 'vGciFPmVGTdd86R682U75MfNdzAQMg';
-        
-            $pdo = new PDO($dsn, $username, $password);
-            // 入力した値をデータベースへ登録
-            } catch (PDOException $e) {
-            // 接続できなかったらエラー表示
-            echo 'DB接続エラー！: ' . $e->getMessage();
-            }
 
 
 
