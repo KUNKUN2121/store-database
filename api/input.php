@@ -40,7 +40,7 @@
             if( $res == true) {
                 // 何個変えた？
                 if($count >= 1){
-                    echo('変更したよ');
+                    echo($barcode .' : '. $count . ' 変更したよ <div>');
                 }else{
                     echo('変更なし');
                 }
