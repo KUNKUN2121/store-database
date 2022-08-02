@@ -37,13 +37,20 @@
 				<p>既存に存在しているバーコードでは登録されず上書きされます。</p>
 				<form method="post" action="send.php" enctype="multipart/form-data">
 					<label>商品名</label>
-					<input type="text" name="content">
+						<input type="text" name="content">
 					<label>バーコード</label>
-					<input type="number" name="barcode" />
+						<input type="number" name="barcode" />
 					<label>個数</label>
-					<input type="number" name="quantity" value="1"/>
+						<input type="number" name="quantity" value="1"/>
 					<label>価格</label>
-					<input type="number" name="price" value="100" />
+						<input type="number" name="price" value="100" />
+					<select name="category">
+						<option value="1">ドリンク</option>
+						<option value="2">おにぎり</option>
+						<option value="3">パン</option>
+						<option value="4">筆記用具</option>
+						<option value="5">その他</option>
+					</select>
 					<input type="file" name="up_file">
 					<div class="text-right">
 					<input name="" type="submit" class="btn btn-primary btn-lg">

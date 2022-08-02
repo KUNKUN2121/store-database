@@ -50,6 +50,7 @@ echo $_POST["quantity"];
 echo '<div>';
 echo $_POST["price"];
 echo '<div>';
+echo $_POST["category"];
 if(isset($_POST["barcode"])) {
 if (isset($_POST["content"])) {
 if (isset($_POST["quantity"])) {
@@ -63,6 +64,7 @@ if (isset($_POST["price"])) {
             $barcode = $_POST["barcode"];
             $quantity = $_POST["quantity"];
             $price = $_POST["price"];
+            $category = $_POST["category"];
 
             //一字ファイルを保存ファイルにコピーできたか
             if(move_uploaded_file($_FILES['up_file']['tmp_name'],"../../../img/".$barcode.".".$extension)){
@@ -99,13 +101,14 @@ if (isset($_POST["price"])) {
 
 
             try{
-                $stmt = $pdo->prepare('INSERT INTO product_contents (itemname, barnum, extension, quantity, price, created_at, updated_at) VALUES(:itemname, :barnum, :extension, :quantity, :price, NOW(), NOW() )');
+                $stmt = $pdo->prepare('INSERT INTO product_contents (itemname, barnum, extension, quantity, category, price, created_at, updated_at) VALUES(:itemname, :barnum, :extension, :quantity, :category, :price, NOW(), NOW() )');
     
                 // 値をセット
                 $stmt->bindValue(':itemname', $content);
                 $stmt->bindValue(':barnum', $barcode);
                 $stmt->bindValue(':extension', $extension);
                 $stmt->bindValue(':quantity', $quantity);
+                $stmt->bindValue(':category', $category);
                 $stmt->bindValue(':price', $price);
                 // $stmt->bindValue(':created_at', '22');
             
