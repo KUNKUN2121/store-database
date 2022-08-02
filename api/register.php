@@ -24,7 +24,7 @@ $extension = 'jpg';
 //array to return
 if(isset($_POST["image"])){
     $base64_string = $_POST["image"];
-    $outputfile = "uploads/image.jpg" ;
+    $outputfile = "../../img/".$barnum.".jpg" ;
     //save as image.jpg in uploads/ folder
 
     $filehandler = fopen($outputfile, 'wb' ); 
