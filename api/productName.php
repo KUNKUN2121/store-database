@@ -66,7 +66,7 @@ $img = 'https://store-project.f5.si/img/';
             if( $res ) {
                 $data = $stmt->fetch();
                 //表示処理
-                if($data[0] != null){
+                if($data[0] !== null){
                     $quantity  = $data[0];
                     $return = 0; // 完了通知
                 }else{
