@@ -92,7 +92,10 @@ $img = 'https://store-project.f5.si/img/';
         'price' => 1000,
         'imgURL' => $imgURL,
         ];
-        echo json_encode($person, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+        header('Content-Type: application/json');
+        echo json_encode($person);
+        /////////////デバッグ用日本語で表示
+        // echo json_encode($person, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
 
     // 登録情報なし
     }elseif ($return == 1){
