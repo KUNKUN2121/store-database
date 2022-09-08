@@ -1,6 +1,10 @@
 <?php 
 require_once "database.php";
 $barcode = $_GET['barcode'];
+if($barcode==NULL){
+    echo('productName.php?barcode=222224');
+    return;
+}
 $img = 'https://store-project.f5.si/img/';
     // itemname 取得
         try{
@@ -100,7 +104,8 @@ $img = 'https://store-project.f5.si/img/';
     // 登録情報なし
     }elseif ($return == 1){
         header('HTTP/1.1 400 Bad Request');
-        echo('登録されていない商品です。');
+        header('Content-Type: application/json');
+        echo('存在しません。');
     // $returnが定義されていない サーバエラー
     }else{
         header('HTTP/1.1 500 Internal Server Error');
