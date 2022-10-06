@@ -9,4 +9,5 @@ try {
     } catch (PDOException $e) {
     echo 'DB接続エラー!: ' . $e->getMessage();
 }
+$ServerURL = 'https://store-project.f5.si/';
 ?>
