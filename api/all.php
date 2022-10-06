@@ -1,10 +1,9 @@
 <?php
 require_once "database.php";
-
+$url = $ServerURL.'/img/';
 // mb_language("uni");
 // mb_internal_encoding("utf-8"); //内部文字コードを変更
 // mb_http_input("auto");
-// mb_http_output("utf-8");
 
 try{
     $stmt = $pdo->prepare("SELECT * FROM product_contents");
@@ -21,8 +20,9 @@ try{
         'category'=>$row['category'],
         'itemname'=>$row['itemname'],
         'price'=>$row['price'],
+        'price'=>$row['price'],
         'quantity'=>$row['quantity'],
-        'created_at'=>$row['created_at'],
+        'imgURL'=>$url.$row['barnum'].'.'.$row['extension'],
         // 'updated_at'=>$row['updated_at'],
         );
     }
